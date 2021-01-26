@@ -927,7 +927,7 @@ class TerraformGenerator(TemplateGenerator):
         lambdas = template['resource']['aws_lambda_function']
         template['resource'].setdefault('aws_apigatewayv2_api', {})[
             resource.resource_name] = {
-            'name': resource.resource_name,
+            'name': self._config.app_name,
             'protocol_type': 'WEBSOCKET',
             'route_selection_expression': '$request.body.action'
         }
